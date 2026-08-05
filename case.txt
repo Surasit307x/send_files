@@ -1,0 +1,93 @@
+#23/07/2569
+#case 20260715
+case 37 PO ยอดสุทธิ  -> OrderCardTablet.tsx -> totalAmount -> grandTotal (line 525)
+
+case 35 แก้ไขใบทำความสะอาด หมายเหตุครั้งแรก โดนหมายเหตุครั้งหลังทับ
+- ใช้ variable: note ตัวเดียวกัน remarkBefore , remarkAfter case cleanOrderId (mode แก้ไข)
+          // ? cleanOrderResult
+          //   ? cleanFormDataStored.remarkBefore
+          //   : note --> ถ้า cleanOrderResult false -> ใช้ note (remarkAfter)
+          // : note,
+- มีการเขียน formData ส่วนของ remarkBefore จาก formData ไม่ได้ใช้ค่าจากข้อมูลที่ fetch มา และไม่มี
+//แก้เบื้องต้นปิด update ส่วน remarkBefore mode แก้ไขใบงานทำความสะอาด
+
+case 8 สร้างใบงานฟังก์ชั่น เปลี่ยนคำหัวข้อ / ปุ่ม ไม่แน่ใจว่าอยู่ตรงไหน?
+
+case 30 
+DefectWorkOrderModal.tsx (quickview)
+Customer_Id , Customer_Name ไม่ถูกบันทึกลงเลยไม่แสดง ฝั่ง tablet?
+
+fix case 20260720 14 , 15 แก้ไขเป็นวันนัดหมาย และ default เป็นวันที่สร้างใบงาน
+
+#24/07/2569
+#case 20260713
+21 ใบงานแจ้งซ่อม -->ประเภทงานส่วนกลาง--> เลือกโซน กับ ชั้น ไม่ได้ ปุ่ม disable //ถามเพิ่มเติม ส่วนไหน เพราะยังใช้งานได้ปกติ
+21 ใบงานแจ้งซ่อม -->ประเภทงานห้องชุด--> ในห้องที่มีชื่อลูกค้าอยู่ในห้องนั้น--> แล้วเปลี่ยนใจ เปลี่ยนประเภทห้องเป็นส่วนกลาง ชื่อของลูกค้ายังคงอยู่ในหน้าส่วนกลาง
+ - แก้ไขล้างข้อมูล reset ล้างข้อมูล
+  - ส่วนกลาง ล้าง โซน , ชั้น , ลูกค้า 
+  - ห้องชุด ล้าง เลขที่ห้องชุด / บ้านเลขที่
+// ควรล้าง ข้อมูลทั้งหมด หรือว่า มีข้อมูลเดิมอยู่แล้วค้างอยู่ แล้ว fetch ข้อมูลลูกค้าใหม่?
+//OrderFormStep1
+
+#case 20260715
+case 29 แก้ไขใบงานฟังก์ชั่น (ส่งมอบพื้นที่ห้อง-ห้องชุด) ชื่อผู้รับแจ้ง หาย
+OrderFormStep1 ใช้ value deliveryId เก็บใน storeData แต่ตอน save step2 ใช้ receiverId ซึ่งมีค่าเป็น 0 จึงไม่แสดงข้อมูลในรายชื่อผู้แจ้งหาก สร้างใบงานใน (tablet)
+
+
+#ยังไม่ปิด
+22 ใบทำความสะอาดที่สร้างจาก Tablet หาไม่เจอใน Tablet แต่โชว์ที่หน้าเว็บ และปฏิทินนัดหมายไม่ถูกนัดเมื่อสร้าง
+ filter วันดำเนินการ tablet งานค้างถึงวันนี้ (due <= วันนี้ รวมใบไม่มี due) หรือ นัดวันนี้ // โหมด default "ดำเนินการวันนี้" = ซ่อนใบที่ "ปิดแล้ว" (cleanOrderStatusId = 5)
+ filter เลือกวัน โหมด "เลือกวันเจาะจง" → โชว์ใบถ้า "วันใดๆ ของใบ" ตรงวันที่เลือก (นัด/คาดเสร็จ/สร้าง/ปิด) แม้ปิดแล้ว
+ 
+#27 ลา 28-29 หยุด
+
+##case 20260714
+14 แก้ไขคำ วันที่คาดว่าจะแล้วเสร็จ (ทั้งใบงาน) -> วันนัดหมาย
+15 default วัดนัดหมาย เป็นวันสร้างใบงาน
+
+#30/07/2569
+update case 20260724 case 9-14 เพิ่มเลข orderCode ในหน้าแก้ไข + แก้ไขคำหัวข้อ
+update case 20260723-30 แก้ฟิลด์ วันที่จัดส่ง
+
+#31/07/2569
+update case 20260724 case 18-19 แก้ใบงานฟังก์ชัน
+update case 20260730 case 2 เพิ่ม field dueDate ในใบงานทำความสะอาด
+update case 20260730 case 16-18 แสดงข้อมูล button บันทึก / ยกเลิก ในเฉพาะ tab รายละเอียด
+
+
+#03/08/2569
+case 20260721 - 7 
+ - src\components\pdf\work-correction-full-document\exportWorkCorrectionFullDocument.ts //แบบเต็ม
+ - src\components\pdf\work-correction-document\exportWorkCorrectionDocument.ts //แบบย่อ
+  - src\screens\Departments\DeptConstruction\Order\index.tsx //หน้า table รวม
+    - postOrderDefectDownload ไม่เจอข้อมูลเลยไม่ download 
+    - /api/orders/defect/download
+    - ต้องมีการ sign และ stamp ลง field Defect_Current_Round ถึงจะสามารถ download เอกสารได้
+    - ส่วน update defect detail ไม่มี defectCaptureArea
+    - เปิดใบงานฝั่ง web และ signed ฝั่ง tablet มีข้อมูลลง table snapshot
+    - เปิดใบงานฝั่ง tablet และ signed ไม่มีข้อมูลลง table snapshot ทำให้อ่านไม่เจอ
+case 20260803 - 5-6 แก้ไขใบงานทำความสะอาด และ แก้ไขใบคำสั่งซื้อ (PO) action แก้ไข
+
+#04/08/2569
+case 20260803 - 2,3,5,6 แก้ไขใบงาน และแถบนำทาง 
+case 20260803 แก้ไข สร้างใบงาน และแก้ไขใบงาน
+case-20260727-7 แก้ชื่อไฟล์ pdf PO Export
+case 20260730 - 9 Default เป็นชื่อของ user ที่ login
+
+#05/08/2569 
+case-20260804-2 review mode ที่ปิดใบงานฟังก์ชัน
+case 20260730-8 แก้ไขวันที่คาดว่าจะแล้วเสร็จ fix case 20260730 - 8 แก้วันที่คาดว่าจะแล้วเสร็จ เลือกให้ auto เหมือนใบปะหน้า
+case 20260803-12 
+/**
+ * Defect_Status_ID ที่ถือว่า "ปิดแล้ว" (ไม่นับเป็นใบเปิดตอนคำนวณ x ต่อห้อง)
+ * 5 = ปิด/เซ็นรับทราบแล้ว, 7 = All Job Done (cron 24h)
+ * หมายเหตุ: 6 = ร่างเอกสาร ถือเป็นใบ "เปิด/ค้าง" (ใบสร้างใหม่เริ่มที่ 6, isEdit=1) จึง "ต้องนับ"
+ *           ถ้าใส่ 6 ไว้ → ใบที่เพิ่งสร้างถูกตัดออก ทำให้ seq เป็น 1 เสมอ (DF1 ตลอด)
+ */
+นับ count จำนวนใบที่ค้างอยู่ + ไปเรื่อยๆ 
+
+const DEFECT_CLOSED_STATUS_IDS = [5, 7];
+
+
+
+src\screens\Departments\DeptService\Order\index.tablet.tsx แก้ permission role
