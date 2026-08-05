@@ -1,0 +1,166 @@
+Land & House ระบบบริหารจัดการคุณภาพโครงการ
+User lh
+peach@lh.co.th
+Sq$0%QIvZzhO%3D9Ienx87aO{ApP2kQN
+
+git
+p21120
+S@rasit999!
+glpat-xwqirDRjD3L2QVPTA4Rs
+
+Menu ใบงาน --> โครงการ -> ใบงาน (Order) -> ใบงานของฉัน -> Create menu บันทึกข้อความ
+
+ใบงานของฉัน \lh-pqms-fe\src\screens\Departments\DeptConstruction
+
+
+#Memo
+//Dev by peach 15/5/2026
+\lh-pqms-fe\src\screens\Departments\DeptConstruction\Order //เปิดเมนูในใบงาน -> ใบงาน (Order) -> เพิ่ม menu บันทึกข้อความ 
+  - index.tablet.tsx 
+  - orderSubtabs.ts
+add folder memo \lh-pqms-fe\src\app\(tabs)\departments\construction\[project]\order\memo\index.tsx //Route OrderScreen (Tablet) ส่วนของ memo
+
+add tab Memo Card \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\components\OrderCardTablet.tsx //เพิ่มข้อมูล Card ในแถบ Memo
+#1 route details memo-check \lh-pqms-fe\src\app\(tabs)\departments\construction\[projectId]\order\edit-order\memo-check... //อาจใช้ในการสร้างหน้า route ตอน click card แถบ memo
+#2 component MemoCheck \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\EditOrder\MemoCheck //componemnt memo check ที่ใช้ใน #1
+#3 component MemoCheck \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\ //component memo check ที่ใช้ใน #2	
+  - MemoCheckFormCoreTabletStep.tsx
+  - MemoCheckFormCoreTabletStep2.tsx
+  - MemoCheckFormCoreTabletStep3.tsx
+add route \lh-pqms-fe\src\components\tablet-bottom\TabletOrderFormBottomButton.tsx //เพิ่ม route ในหน้า edit ใบ
+
+\lh-pqms-fe\src\components\tablet-header\TabletFormStep.tsx  //add step ข้างบนทำงานในหน้า edit
+
+add form หน้า details แต่ละส่วน \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\MemoCheck\components\MemoCheckForm.tsx //form details ใบบันทึกข้อความ step #1
+
+\lh-pqms-fe\src\store\order-form\useRememberedOrderFormStore.ts  //Mock route store data
+
+\lh-pqms-fe\src\shared\dayjs\useDayjsBangkok.ts //add format getFullThaiDate2
+
+\lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\pdf\tablet\exportMemoOrderDocument.ts //download Documents
+
+\lh-pqms-fe\src\components\previewable-image-url //2 file preview image url
+
+
+#step ทำงาน
+-> fetch fetchMemoList (sqliteGetMemoOrderSearch) -> orderId , orderTypeId -> step 1 -> fetchMemo (sqliteGetMemoOrderSearchById) 
+-> setMemoFormData (stored Global)
+
+*Memo Contruction \lh-pqms-fe\src\screens\Departments\DeptConstruction\Memo (โครงสร้างไว้อยู่แล้ว !?) ของเว็บ
+*Memo Service \lh-pqms-fe\src\screens\Departments\DeptService\Memo (โครงสร้างไว้อยู่แล้ว !?) ของเว็บ
+ \lh-pqms-fe\src\app\(tabs)\departments\service\[projectId]\memo //import service Memo สำหรับใช้งาน ของเว็บ
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
+#Delivery
+\lh-pqms-fe\src\screens\Departments\DeptConstruction\Order //เปิดเมนูในใบงาน -> ใบงาน (Order) -> เพิ่ม menu ส่งมอบทรัพย์สิน (Delivery) 
+  - index.tablet.tsx 
+  - orderSubtabs.ts
+#1 component DeliveryCheck \lh-pqms-fe\src\app\(tabs)\departments\construction\[projectId]\order\edit-order\delivery-check\index.tsx
+			   \lh-pqms-fe\src\app\(tabs)\departments\construction\[projectId]\order\edit-order\delivery-check\step2\index.tsx
+			   \lh-pqms-fe\src\app\(tabs)\departments\construction\[projectId]\order\edit-order\delivery-check\step3\index.tsx
+#2 component DeliveryCheck \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\EditOrder\DeliveryCheck\index.tablet.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\EditOrder\DeliveryCheck\Step2\index.tablet.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\EditOrder\DeliveryCheck\Step3\index.tablet.tsx
+#3 component DeliveryCheck \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheckFormCoreTablet.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheckFormCoreTabletStep2.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheckFormCoreTabletStep3.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheckFormCoreTabletStep4.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheckFormCoreTabletStep5.tsx
+#4 component Form Delivery \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheck\components\DeliveryFormStep1.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheck\components\DeliveryFormStep2.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheck\components\DeliveryFormStep3.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheck\components\DeliveryFormStep4.tsx
+			   \lh-pqms-fe\src\screens\Departments\DeptConstruction\Order\shared\DeliveryCheck\components\DeliveryFormStep5.tsx
+
+\lh-pqms-fe\src\components\tablet-header\TabletFormStep.tsx  //add step ข้างบนทำงานในหน้า edit
+
+mock data delivery step2 \lh-pqms-fe\src\store\order-form\useRememberedOrderFormStore.ts
+
+lh-pqms-fe\src\app\(tabs)\departments\construction\[projectId]\order\add-order\order-success\index.tsx //order success?
+
+
+#Process Delivery
+Step1
+-> fetchRoomData //ประเภทห้องชุด by propertyTypeId , projectId
+-> roomRes -> roomOptions //เลขที่ห้อง , โซน + ชั้น กรณีส่วนกลาง
+-> fetchDeliveryEditMode -> sqliteGetDeliveryOrderSearchById //ดึงข้อมูลมาที่จำเป็นต้องใช้มาแสดงและใช้งาน
+-> relationshipOptions //ความสัมพันธ์ ผู้รับมอบอำนาจ
+-> ผู้แจ้ง , เบอร์ , อีเมล ระบุ
+-> fetchReceiverData //เจ้าหน้าที่ by DELIVERY_TYPE_CODE , orderTypeId
+-> วันที่คาดว่าจะแล้วเสร็จ // เลือกวัน
+Step2
+
+
+-> searchListById -> deliveryFormData -> Step1 -> Step2 ... -> acknowledge all or not (set true) -> Signed
+-> Download -> check Signed for download pdf 22 , check Signed + acknowledge (default false) 22 and 23 
+
+#Problem	
+sqliteGetReceiverByTypeCodeAndOderTypeId (ตัว receiver list Delivery Step1 ไม่มี type 4)
+
+
+#Backend Local Be
+.env be
+# FRONTEND_DOMAIN=https://lh-pqms.ndth-payment.xyz
+# FILE_SERVER_ORIGIN=https://lh-pqms.ndth-payment.xyz
+# FRONTEND_URL=https://lh-pqms.ndth-payment.xyz
+
+.env fe
+EXPO_PUBLIC_ENABLE_COMPONENT_PLAYGROUND=true
+EXPO_PUBLIC_API_ORIGIN=https://lh-pqms.ndth-payment.xyz
+# EXPO_PUBLIC_API_ORIGIN=https://lh-pqms.ndth-payment.xyz
+EXPO_PUBLIC_API_ORIGIN=http://192.168.1.41:3000
+EXPO_PUBLIC_TOKEN_SEED=df6d0245d500bb9c5df8ef3b9370961bd74ccab4987e7b6e331a716136478f71
+
+SQLite
+npx expo run:android
+adb exec-out run-as com.ndth.lhpqmsfe cat files/SQLite/app.db > app.db
+adb exec-out run-as com.ndth.lhpqmsfe cat files/SQLite/app.db-wal > app.db-wal
+adb exec-out run-as com.ndth.lhpqmsfe cat files/SQLite/app.db-shm > app.db-shm
+
+https://tarathep.notion.site/How-to-Query-SQLite-on-Emulator-350a2636e4918098a15fc548a44ec2cb
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
+const isSqliteReset = false; sync //เปิด true รัน project เพื่อ sync แล้วค่อยปรับเป็น false
+
+
+
+
+
+
+//LH Project 21/07/2026
+Surasit@condo.lh.co.th
+123456
+
+#set up db
+docker network create lh-pqms-net
+docker volume create lh-pqms-mariadb-data
+docker run -d `
+  --name lh-pqms-mariadb `
+  -p 3306:3306 `
+  -v lh-pqms-mariadb-data:/var/lib/mysql `
+  -e MARIADB_ROOT_PASSWORD=root `
+  -e MARIADB_DATABASE=lh_pqms_dev `
+  -e TZ=Asia/Bangkok `
+  mariadb:12.1.2
+
+docker stop lh-pqms-mariadb
+docker rm lh-pqms-mariadb
+docker volume rm lh-pqms-mariadb-data
+
+
+DB_TYPE=mariadb
+DB_HOST=20.6.132.15
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD="m}=Y|R#OWvJCyCrk"
+DB_NAME=lh_pqms_dev
+DB_SYNCHRONIZE=false
+
+#be
+npm start
+#fe
+npx expo start -c
+
+
+Scale pixel
+1080x1920 tablet
