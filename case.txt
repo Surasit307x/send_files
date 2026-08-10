@@ -88,6 +88,8 @@ case 20260803-12
 
 const DEFECT_CLOSED_STATUS_IDS = [5, 7];
 
-
+#10/08/2569
+case 20260806(UAT) - 18-23 แก้ไข font ใบงานส่งมอบทรัพย์สิน , เอา column รับทราบ ออก (3) - (6) ออก , auto แสดง ชื่อ ลค./ผู้รับมอบ และ จนท. ลงนาม(7) , ถ้าเลือกรายการไม่ครบ (2) ให้เด้งไปหน้า (7)
+case 20260807 - 1 เพิ่ม field วันที่วางบิลเข้าไปในใบงานชนิด ไม่ระบุห้อง กับ ระบุใบบันทึกความ
 
 src\screens\Departments\DeptService\Order\index.tablet.tsx แก้ permission role
