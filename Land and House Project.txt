@@ -164,3 +164,8 @@ npx expo start -c
 
 Scale pixel
 1080x1920 tablet
+
+#Dev
+https://lh-pqms-dev.ndth-payment.xyz/login
+
+dbname: lh_pqms_dev0 3306
