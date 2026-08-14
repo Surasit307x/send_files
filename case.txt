@@ -100,4 +100,6 @@ Quickview PO billingDate ถ้าไม่มีข้อมูล ใช้ cr
 #13/08/2568
 fix-case-20260811-2-3 แก้ไข column ตาราง และ แก้ไขใบงานทำความสะอาด validate เช็ควัดนัดหมาย
 
+case 20260813-5,6,7,8 ไม่เพิ่มเกินจำนวน และ disabled ปุ่ม ใบงานส่งมอบทรัพย์สิน
+
 src\screens\Departments\DeptService\Order\index.tablet.tsx แก้ permission role
