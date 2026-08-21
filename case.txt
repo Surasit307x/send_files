@@ -134,5 +134,6 @@ fix-case-20260814-14 แก้ไข เอา checkbox กลับมา , ท
 
 #21/08/2569
 fix-case-20260814-14 แก้ไขเพิ่มเติม checkbox แสดงผลไม่ถูกต้อง, เอา checkbox หน้าปุ่มออก, เอา step7 สถานะปิดใบงานออก
-	
+fix-case-20260818-10 แก้ไขใบงานดีเฟค สถานะ รอแก้ไข ให้กดปักหมุดเพิ่มไม่ได้
+
 src\screens\Departments\DeptService\Order\index.tablet.tsx แก้ permission role
