@@ -160,5 +160,11 @@ fix-case-20260828-1 แก้ให้ role transfer แสดงแท็บ �
 เพิ่มสิทธิ์ให้ Role Transfer แสดงแท็บภาพรวมโครงการ
  - เพิ่ม Permission PROJECT_CALENDAR_VIEW ให้ Role Transfer (Role_ID = 6)
 
+fix-case-20260827-1-2
+นำช่อง dropdown list ใบงานย่อย / ผรม. * ออก เฉพาะ ประเภทนัดหมาย * (นัดตรวจแจ้งซ่อม ,นัดปิดแจ้งซ่อม)
+แก้ไขชื่อประเภทนัดหมาย "นัดตรวจแจ้งซ่อมครั้งแรก" เป็น "นัดตรวจแจ้งซ่อม"
+
+*** เพิ่ม lh-pqms-be\db\migrations\2026-08-28_fix_calendar_type_name.sql
+แก้ไข CalendarType_Name ของ CalendarType_ID = 9 จาก "นัดตรวจแจ้งซ่อมครั้งแรก" เป็น "นัดตรวจแจ้งซ่อม"
 
 src\screens\Departments\DeptService\Order\index.tablet.tsx แก้ permission role
