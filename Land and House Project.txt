@@ -131,6 +131,10 @@ const isSqliteReset = false; sync //เปิด true รัน project เพ�
 Surasit@condo.lh.co.th
 123456
 
+ฝ่ายโอน
+transfer.numtip@condo.lh.co.th
+P@ssw0rd
+
 #set up db
 docker network create lh-pqms-net
 docker volume create lh-pqms-mariadb-data
