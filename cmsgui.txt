@@ -1,0 +1,5 @@
+#sql-version-22
+sql-server-22-th.cja0uq84k8x4.ap-southeast-7.rds.amazonaws.com 
+Port 9677
+username admin
+password Passw999rd
