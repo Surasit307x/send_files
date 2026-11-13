@@ -1,0 +1,8 @@
+Theme Sota robot 
+- Sota_Activity.html แสดงข้อมูล Data table / Search ได้ วันที่ และอื่นๆ 
+- Present_by_sota.html - update-activity sota robot 
+   - Database , ajax ดึงข้อมูลจาก ACTION ซึ่งอาจจะเป็นท่าทางเพื่อมาแสดง เพื่อนำมาแสดง รูปท่าทาง
+- Graph เกี่ยวกับตัว event summary ที่ใช้ต่อวัน  กราฟลักษณะต่างๆ กราฟวงกลม หรืออื่นๆ มาแสดง
+- หน้า แสดง คำพูด คาราโอเกะ Speech - text มาบันทึกของ robot และแสดงออกมาเป็นคำพูด
+
+ใช้ ajax
